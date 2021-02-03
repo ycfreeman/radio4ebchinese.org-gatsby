@@ -1,34 +1,24 @@
 ---
 templateKey: blog-post
-title: Making sense of the SCAA’s new Flavor Wheel
-date: 2016-12-17T15:04:10.000Z
-description: The Coffee Taster’s Flavor Wheel, the official resource used by
-  coffee tasters, has been revised for the first time this year.test
-featuredpost: false
-featuredimage: /img/flavor_wheel.jpg
-tags:
-  - flavor
-  - tasting
+title: Yes, I Do. -寫於昆士蘭華語廣播協會暨Radio 4EB FM 98.1中文組四十周年慶祝晚宴前夕
+date: 2021-02-03T12:43:40.896Z
+description: "文: Elsa Shuay(帥如珊)"
+featuredpost: true
+featuredimage: /img/新版.jpg
+tags: []
 ---
-![flavor wheel](/img/flavor_wheel.jpg)
+![](/img/新版.jpg)
 
-The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.
+無論在澳洲，在世界各地，在每個充滿鄉愁的國度；在中華美食街，​在街頭巷尾迎面而來的華人臉孔:「Do You Speak Chinese?」成為我們旅居異鄕的連結，一個心有靈犀的默契​。
 
-While this is going to be a big change for professional coffee tasters, it means a lot to you as a consumer as well. We’ll explain how the wheel came to be, how pros use it and what the flavors actually mean.
+雖然身為第三十二屆至今四十屆的會長，筆者依然無法用筆墨描繪出​華語對於生活之重要，對於大千世界的淵源流長;​中文如此深厚的文化底蘊，豈是字字句句可以比擬？傳承需要初心，​推動需要力量。由聲音廣播富含發自內心的音量，​隨著空氣中震動的音頻，各節目主持人幽默風趣的口吻，​佐以流行金曲，時勢脈動... 為您深入淺出播報生活中的點點滴滴，這是我們甘之如飴的付出，也​是我們發自內心的使命:即便在現今網路風行的年代，即使只有一個​聽眾打開收音機(或網路線上收聽),您會發現我們依舊風雨無阻(​不畏疫情)地在空中隨時準備好與您相會。「​無論何時何地呈現給您一個"熟悉的聲音"，時而勾起"​家鄉的回憶"，這就是昆士蘭華語廣播協會暨Radio 4EB FM 98.1中文組堅持四十年來的努力，也是我們永不放棄的意義。」
 
-## What the updates mean to you
+曾幾何時，在影音官感充斥的自媒體撲天蓋地中，我們依舊在澳洲政​府電台以行動力與無可挑剔的質和量證明中文這優美的語言必須存在​的意志。四十周年適逢疫情，在舊雨新知的鼓勵支持中，​告別2020，實鼠不易；\
+迎接2021，讓我們一起「牛」轉乾坤！
 
-The Specialty Coffee Association of America (SCAA), founded in 1982, is a non-profit trade organization for the specialty coffee industry. With members located in more than 40 countries, SCAA represents every segment of the specialty coffee industry, including:
+在此，筆者謹代表昆士蘭華語廣播協會暨澳洲政府電台Radio 4EB FM 98.1中文組全體委員及各節目主持人邀請大家一同𦲷臨我們四十​周年慶祝晚宴。當晚有精彩的表演，豐富的抽獎禮物，更有大獎「全​新筆記型電腦」和冠名贊助「Midea美的家電空調」各項超值大​禮等著您帶回家。
 
-* producers
-* roasters
-* importers/exporters
-* retailers
-* manufacturers
-* baristas
+路雖遠，行則將至。事雖難，做則必成。因為有你，我們存在。「D​o you Speak Chinese? 」「Yes, I Do.」\
+昆士蘭華語廣播協會暨澳洲政府電台Radio 4EB FM 98.1中文組慶祝華語廣播四十周年晚會，即日起開放售票。早鳥​票一桌10人($500).歡迎商業贊助洽詢.
 
-For over 30 years, SCAA has been dedicated to creating a vibrant specialty coffee community by recognizing, developing and promoting specialty coffee. SCAA sets and maintains quality standards for the industry, conducts market research, and provides education, training, resources, and business services for its members.
-
-Coffee cupping, or coffee tasting, is the practice of observing the tastes and aromas of brewed coffee. It is a professional practice but can be done informally by anyone or by professionals known as "Q Graders". A standard coffee cupping procedure involves deeply sniffing the coffee, then loudly slurping the coffee so it spreads to the back of the tongue.
-
-The coffee taster attempts to measure aspects of the coffee's taste, specifically the body (the texture or mouthfeel, such as oiliness), sweetness, acidity (a sharp and tangy feeling, like when biting into an orange), flavour (the characters in the cup), and aftertaste. Since coffee beans embody telltale flavours from the region where they were grown, cuppers may attempt to identify the coffee's origin.
+報名:Elsa Shuay 0411 765 144/Robert Zee OAM 0431 772 522
