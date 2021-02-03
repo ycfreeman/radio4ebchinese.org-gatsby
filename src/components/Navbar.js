@@ -1,98 +1,95 @@
-import React from 'react'
-import { Link } from 'gatsby'
-import github from '../img/github-icon.svg'
-import logo from '../img/logo.svg'
+import React, { useState, useCallback, useMemo } from "react";
+import { Link, useStaticQuery, graphql } from "gatsby";
+import logo from "../img/logo.png";
+import useSiteMetadata from "./SiteMetadata";
 
-const Navbar = class extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      active: false,
-      navBarActiveClass: '',
-    }
-  }
-
-  toggleHamburger = () => {
-    // toggle the active boolean in the state
-    this.setState(
-      {
-        active: !this.state.active,
-      },
-      // after state has been updated,
-      () => {
-        // set the class in state for the navbar accordingly
-        this.state.active
-          ? this.setState({
-              navBarActiveClass: 'is-active',
-            })
-          : this.setState({
-              navBarActiveClass: '',
-            })
+const Navbar = () => {
+  const data = useStaticQuery(graphql`
+    query NavbarGroupsQuery {
+      allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "group" } } }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
+        }
       }
-    )
-  }
+    }
+  `);
 
-  render() {
-    return (
-      <nav
-        className="navbar is-transparent"
-        role="navigation"
-        aria-label="main-navigation"
-      >
-        <div className="container">
-          <div className="navbar-brand">
-            <Link to="/" className="navbar-item" title="Logo">
-              <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-            </Link>
-            {/* Hamburger menu */}
-            <div
-              className={`navbar-burger burger ${this.state.navBarActiveClass}`}
-              data-target="navMenu"
-              onClick={() => this.toggleHamburger()}
-            >
-              <span />
-              <span />
-              <span />
-            </div>
-          </div>
+  const { edges: groups } = data.allMarkdownRemark;
+
+  const { title } = useSiteMetadata();
+
+  const [active, setActive] = useState(false);
+
+  const navBarActiveClass = useMemo(() => {
+    if (active) return "is-active";
+    return "";
+  }, [active]);
+
+  const toggleHamburger = useCallback(() => {
+    setActive(!active);
+  }, [active, setActive]);
+
+  return (
+    <nav
+      className="navbar is-transparent"
+      role="navigation"
+      aria-label="main-navigation"
+    >
+      <div className="container">
+        <div className="navbar-brand">
+          <Link to="/" className="navbar-item" title="Home">
+            <img src={logo} alt={title} />
+          </Link>
+          {/* Hamburger menu */}
           <div
-            id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`navbar-burger burger ${navBarActiveClass}`}
+            data-target="navMenu"
+            onClick={() => toggleHamburger()}
           >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/products">
-                Products
-              </Link>
-              <Link className="navbar-item" to="/blog">
-                Blog
-              </Link>
-              <Link className="navbar-item" to="/contact">
-                Contact
-              </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Form Examples
-              </Link>
-            </div>
-            <div className="navbar-end has-text-centered">
-              <a
-                className="navbar-item"
-                href="https://github.com/netlify-templates/gatsby-starter-netlify-cms"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <span className="icon">
-                  <img src={github} alt="Github" />
-                </span>
-              </a>
-            </div>
+            <span />
+            <span />
+            <span />
           </div>
         </div>
-      </nav>
-    )
-  }
-}
+        <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
+          <div className="navbar-start has-text-centered">
+            <Link className="navbar-item" to="/blog">
+              Blog
+            </Link>
+            <div className="navbar-item has-dropdown is-hoverable">
+              <a className="navbar-link">Groups</a>
+              <div className="navbar-dropdown">
+                {groups.map(({ node: group }) => {
+                  return (
+                    <Link
+                      key={`navbar-group-${group.fields.slug}`}
+                      className="navbar-item"
+                      to={group.fields.slug}
+                    >
+                      {group.frontmatter.title}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+            <Link className="navbar-item" to="/programme-timetable">
+              Programme Timetable
+            </Link>
+          </div>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-export default Navbar
+export default Navbar;
