@@ -4,8 +4,10 @@ import { Link, graphql } from "gatsby";
 
 import Layout from "../components/Layout";
 import BlogRoll from "../components/BlogRoll";
+import { HTMLContent } from "../components/Content";
 
 export const IndexPageTemplate = ({
+  html,
   image,
   heading,
   subheading,
@@ -67,14 +69,11 @@ export const IndexPageTemplate = ({
             <div className="content">
               <div className="columns">
                 <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    {mainpitch.title}
-                  </h3>
-                  <p>{mainpitch.description}</p>
+                  <HTMLContent content={html} />
                 </div>
               </div>
               <div className="column is-12">
-                <h3 className="has-text-weight-semibold is-size-2">
+                <h3 className="has-text-weight-semibold is-size-4">
                   Latest stories
                 </h3>
                 <BlogRoll />
@@ -102,11 +101,12 @@ IndexPageTemplate.propTypes = {
 };
 
 const IndexPage = ({ data }) => {
-  const { frontmatter } = data.markdownRemark;
+  const { frontmatter, html } = data.markdownRemark;
 
   return (
     <Layout>
       <IndexPageTemplate
+        html={html}
         image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -132,15 +132,13 @@ export default IndexPage;
 export const pageQuery = graphql`
   query IndexPageTemplate {
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+      id
+      html
       frontmatter {
         title
         image
         heading
         subheading
-        mainpitch {
-          title
-          description
-        }
         description
       }
     }
