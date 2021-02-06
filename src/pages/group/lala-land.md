@@ -4,14 +4,14 @@ title: Lala-Land
 description: |
   Lala-Land
 galleryImages:
-  - /img/img_1.png
-  - /img/img_2.jpg
-  - /img/img_3.jpg
-  - /img/lala-land_1.jpg
-  - /img/lala-land_2.jpg
-  - /img/lala-land_3.jpg
-  - /img/lala-land_4.jpg
-  - /img/lala-land_5.jpg
+  - /assets/img_1.png
+  - /assets/img_2.jpg
+  - /assets/img_3.jpg
+  - /assets/lala-land_1.jpg
+  - /assets/lala-land_2.jpg
+  - /assets/lala-land_3.jpg
+  - /assets/lala-land_4.jpg
+  - /assets/lala-land_5.jpg
 ---
 Lala-Land was formed in 2008 by a group of Singaporeans students in Brisbane to provide entertainment to fellow Singaporeans. Working with Radio 4EB FM98.1, Lala-Land broadcasts its programmes through radio frequency 98.1FM and online internet streaming.Since 2010, our listeners consists not only Singaporeans but also Malaysians, Hong Kongers, Chinese, and Taiwanese. Both local and overseas audiences can listen on local radio and online streams.Lala-Land hosts two main mandarin programmes – SingParty and La Kopi. SingParty covers news, current affairs, events, food and entertainment. La Kopi is a chit chat and discussion programme on general and specific topics. These programmes are the only Singish/Malgish Mandarin Radio Programme in Australia.
 From 2012, Lala-Land will work with local businesses to provide more interactive and exciting contents to entertainment its audience. Also working closely with Queensland University of Technology (QUT) Singapore Students Associations, Lala-Land will be bringing more news, events and special interviews to our listeners.

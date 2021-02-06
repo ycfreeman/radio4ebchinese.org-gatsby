@@ -3,13 +3,13 @@ templateKey: blog-post
 title: 榴槤俱樂部
 description: 榴槤俱樂部
 galleryImages:
-  - /img/durianclub_0.png
-  - /img/durianclub_1.jpg
-  - /img/durianclub_2.jpg
-  - /img/durianclub_3.jpg
-  - /img/durianclub_4.jpg
-  - /img/durianclub_5.jpg
-  - /img/durianclub_6.jpg
+  - /assets/durianclub_0.png
+  - /assets/durianclub_1.jpg
+  - /assets/durianclub_2.jpg
+  - /assets/durianclub_3.jpg
+  - /assets/durianclub_4.jpg
+  - /assets/durianclub_5.jpg
+  - /assets/durianclub_6.jpg
 ---
 ##  Durian Club / Digital Chat
 
