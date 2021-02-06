@@ -63,8 +63,8 @@ const Navbar = () => {
         </div>
         <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
           <div className="navbar-start has-text-centered">
-            <Link className="navbar-item" to="/blog">
-              Blog
+            <Link className="navbar-item" to="/news">
+              News
             </Link>
             <div className="navbar-item has-dropdown is-hoverable">
               <a className="navbar-link">Groups</a>

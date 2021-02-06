@@ -38,8 +38,8 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/blog">
-                      Blog
+                    <Link className="navbar-item" to="/news">
+                      News
                     </Link>
                   </li>
                   <li>
