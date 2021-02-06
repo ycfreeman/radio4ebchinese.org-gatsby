@@ -2,7 +2,14 @@
 templateKey: blog-post
 title: 榴槤俱樂部 Durian Club / Digital Chat
 description: 榴槤俱樂部 Durian Club / Digital Chat
-galleryImages: []
+galleryImages:
+  - /img/durianclub_0.png
+  - /img/durianclub_1.jpg
+  - /img/durianclub_2.jpg
+  - /img/durianclub_3.jpg
+  - /img/durianclub_4.jpg
+  - /img/durianclub_5.jpg
+  - /img/durianclub_6.jpg
 ---
 榴槤俱樂部屬於廣東話青年組，由一班年青的主持人為大家主持節目。我們榴槤俱樂部的節目涵蓋各種社區資訊，例如：Brisbane有乜搞──告訴你接下來的一周Brisbane有什麼活動可以參加或者湊個熱鬧；榴槤news room──讓你得知港澳兩地新聞及世界時事；當然亦少不了娛樂新聞、最新影視資訊, 或者專輯推介等等，我們每星期還會為你介紹各種有趣又實用的手機APP。而每當有香港藝人來到Brisbane，我們都會派員採訪，曾受訪嘉賓有MC Jin, DJ Miss Yellow (黃泆潼), 新晉模特兒向殷和澳洲旅遊局絕世筍工計劃最後三強，現為香港TVBJ2台旅遊主持梁彥宗等等，總之節目豐富。每逢星期六晚，十點半至十二點，在收音機打開FM 98.1，或者上網都可以收聽到我們的節目。
 
