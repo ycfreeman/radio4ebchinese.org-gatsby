@@ -1,14 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
 import { Helmet } from "react-helmet";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../components/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import { HTMLContent } from "../components/Content";
 import { BlogPostTemplate } from "./blog-post";
 
 const Group = ({ data }) => {
   const { markdownRemark: post } = data;
+  const images = post.frontmatter.galleryImages.map(
+    ({ image }) => image.childImageSharp
+  );
 
   return (
     <Layout>
@@ -27,6 +29,7 @@ const Group = ({ data }) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        images={images}
       />
     </Layout>
   );
@@ -49,6 +52,18 @@ export const pageQuery = graphql`
         title
         description
         tags
+        galleryImages {
+          image {
+            childImageSharp {
+              thumb: fluid(maxWidth: 270, maxHeight: 270) {
+                ...GatsbyImageSharpFluid
+              }
+              full: fluid(maxWidth: 1024) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
   }

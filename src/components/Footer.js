@@ -34,17 +34,17 @@ const Footer = () => {
                 <ul className="menu-list">
                   <li>
                     <Link to="/" className="navbar-item">
-                      Home
+                      首頁 | Home
                     </Link>
                   </li>
                   <li>
                     <Link className="navbar-item" to="/news">
-                      News
+                      最新動態 | News
                     </Link>
                   </li>
                   <li>
                     <Link className="navbar-item" to="/programme-timetable">
-                      Programme Timetable
+                      時間表 | Programme Timetable
                     </Link>
                   </li>
                 </ul>
@@ -52,7 +52,7 @@ const Footer = () => {
             </div>
             <div className="column is-4">
               <section className="menu">
-                <p className="menu-label">Groups</p>
+                <p className="menu-label">節目組 | Groups</p>
                 <ul className="menu-list">
                   {groups.map(({ node: group }) => {
                     return (

@@ -64,10 +64,10 @@ const Navbar = () => {
         <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`}>
           <div className="navbar-start has-text-centered">
             <Link className="navbar-item" to="/news">
-              News
+              最新動態 | News
             </Link>
             <div className="navbar-item has-dropdown is-hoverable">
-              <a className="navbar-link">Groups</a>
+              <a className="navbar-link">節目組 | Groups </a>
               <div className="navbar-dropdown">
                 {groups.map(({ node: group }) => {
                   return (
@@ -83,7 +83,7 @@ const Navbar = () => {
               </div>
             </div>
             <Link className="navbar-item" to="/programme-timetable">
-              Programme Timetable
+              時間表 | Programme Timetable
             </Link>
           </div>
         </div>

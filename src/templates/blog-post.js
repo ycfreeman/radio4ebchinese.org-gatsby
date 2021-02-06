@@ -1,10 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import { Helmet } from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from "react";
+import PropTypes from "prop-types";
+import { kebabCase } from "lodash";
+import { Helmet } from "react-helmet";
+import { graphql, Link } from "gatsby";
+import Layout from "../components/Layout";
+import Content, { HTMLContent } from "../components/Content";
+import Gallery from "@browniebroke/gatsby-image-gallery";
+import "@browniebroke/gatsby-image-gallery/dist/style.css";
 
 export const BlogPostTemplate = ({
   content,
@@ -13,12 +15,13 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
+  images = [],
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
     <section className="section">
-      {helmet || ''}
+      {helmet || ""}
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
@@ -27,6 +30,19 @@ export const BlogPostTemplate = ({
             </h1>
             <p>{description}</p>
             <PostContent content={content} />
+            <p></p>
+
+            {images.length > 0 ? (
+              <div
+                style={{
+                  marginTop: `4rem`,
+                  marginLeft: `0.75em`,
+                  marginRight: `0.75em`,
+                }}
+              >
+                <Gallery images={images} />
+              </div>
+            ) : null}
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
@@ -43,8 +59,8 @@ export const BlogPostTemplate = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -52,10 +68,14 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.object,
-}
+  images: PropTypes.arrayOf(PropTypes.object),
+};
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
+  const images = post.frontmatter.galleryImages.map(
+    ({ image }) => image.childImageSharp
+  );
 
   return (
     <Layout>
@@ -74,18 +94,19 @@ const BlogPost = ({ data }) => {
         }
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
+        images={images}
       />
     </Layout>
-  )
-}
+  );
+};
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-}
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -97,7 +118,19 @@ export const pageQuery = graphql`
         title
         description
         tags
+        galleryImages {
+          image {
+            childImageSharp {
+              thumb: fluid(maxWidth: 270, maxHeight: 270) {
+                ...GatsbyImageSharpFluid
+              }
+              full: fluid(maxWidth: 1024) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
       }
     }
   }
-`
+`;

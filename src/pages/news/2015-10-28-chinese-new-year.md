@@ -5,10 +5,10 @@ date: 2015-10-28T13:16:55.301Z
 description: ""
 featuredpost: false
 featuredimage: /assets/happytryio-2.jpg
+galleryImages:
+  - image: /assets/happytryio-2.jpg
 ---
 Chinese New Year (Fortitude Valley)
-
-![](/assets/happytryio-2.jpg)
 
 OB Van
 

@@ -76,12 +76,12 @@ export const IndexPageTemplate = ({
               </div>
               <div className="column is-12">
                 <h3 className="has-text-weight-semibold is-size-4">
-                  Latest stories
+                  最新動態 | Latest stories
                 </h3>
                 <BlogRoll />
                 <div className="column is-12 has-text-centered">
-                  <Link className="btn" to="/blog">
-                    Read more
+                  <Link className="btn" to="/news">
+                    瀏覽更多 | Read more
                   </Link>
                 </div>
               </div>

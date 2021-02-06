@@ -21,7 +21,7 @@ const BlogIndexPage = () => {
             padding: "1rem",
           }}
         >
-          Latest Stories
+          最新動態 | Latest Stories
         </h1>
       </div>
       <section className="section">
