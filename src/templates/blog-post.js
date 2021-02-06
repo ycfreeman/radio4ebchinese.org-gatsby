@@ -28,14 +28,11 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            <p>{description}</p>
-            <PostContent content={content} />
-            <p></p>
-
+            {description ? <p>{description}</p> : null}
             {images.length > 0 ? (
               <div
                 style={{
-                  marginTop: `4rem`,
+                  marginBottom: `4rem`,
                   marginLeft: `0.75em`,
                   marginRight: `0.75em`,
                 }}
@@ -43,6 +40,7 @@ export const BlogPostTemplate = ({
                 <Gallery images={images} />
               </div>
             ) : null}
+            <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
@@ -74,7 +72,7 @@ BlogPostTemplate.propTypes = {
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
   const images = post.frontmatter.galleryImage.map(
-    ({ image }) => image.childImageSharp
+    (image) => image.childImageSharp
   );
 
   return (

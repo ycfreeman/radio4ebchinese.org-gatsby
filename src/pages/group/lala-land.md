@@ -1,8 +1,6 @@
 ---
-templateKey: blog-post
+templateKey: group
 title: Lala-Land
-description: |
-  Lala-Land
 galleryImage:
   - /assets/img_1.png
   - /assets/img_2.jpg

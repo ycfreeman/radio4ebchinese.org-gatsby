@@ -9,7 +9,7 @@ import { BlogPostTemplate } from "./blog-post";
 const Group = ({ data }) => {
   const { markdownRemark: post } = data;
   const images = post.frontmatter.galleryImage.map(
-    ({ image }) => image.childImageSharp
+    (image) => image.childImageSharp
   );
 
   return (

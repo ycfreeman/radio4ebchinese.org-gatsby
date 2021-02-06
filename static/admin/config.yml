@@ -37,7 +37,6 @@ collections:
       - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
 
-
   - name: "group"
     label: "Group"
     folder: "src/pages/group"
@@ -48,16 +47,21 @@ collections:
           label: "Template Key",
           name: "templateKey",
           widget: "hidden",
-          default: "blog-post",
+          default: "group",
         }
       - { label: "Group Name", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
+      - {
+          label: "Description",
+          name: "description",
+          widget: "text",
+          required: false,
+        }
       - { label: "Body", name: "body", widget: "markdown" }
       - label: "Gallery"
         name: "galleryImage"
         widget: "list"
         field: { label: Image, name: image, widget: image }
-        
+
   - name: "pages"
     label: "Pages"
     files:
