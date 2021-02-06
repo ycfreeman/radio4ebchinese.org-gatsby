@@ -1,7 +1,7 @@
 ---
 templateKey: group
 title: 咖啡狂想曲
-description: ""
+description: 咖啡狂想曲
 galleryImages:
   - image: /assets/coffee-_rhapsody_1.jpg
   - image: /assets/coffee-_rhapsody_2.jpg
