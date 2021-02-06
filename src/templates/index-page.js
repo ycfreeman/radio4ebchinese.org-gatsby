@@ -109,7 +109,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <IndexPageTemplate
         html={html}
-        image={frontmatter.image}
+        image={frontmatter.featuredimage}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -138,7 +138,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        image {
+        featuredimage {
           childImageSharp {
             fluid(maxWidth: 2048, quality: 100) {
               ...GatsbyImageSharpFluid

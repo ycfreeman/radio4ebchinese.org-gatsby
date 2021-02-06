@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import logo from "../img/logo.png";
+import logo from "../../static/assets/logo.png";
 import useSiteMetadata from "./SiteMetadata";
 
 const Navbar = () => {

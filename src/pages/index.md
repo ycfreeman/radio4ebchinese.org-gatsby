@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: 一個熟悉的聲音，帶點感性，絕對流行
-image: /img/home-jumbotron.jpg
+featuredimage: /assets/home-jumbotron.jpg
 heading: 一個熟悉的聲音，帶點感性，絕對流行
 subheading: Sharing the world with you. 都在Radio 4EB FM 98.1
 ---
