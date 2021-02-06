@@ -34,7 +34,6 @@ collections:
         name: "galleryImage"
         widget: "list"
         field: { label: Image, name: image, widget: image }
-      - { label: "Body", name: "body", widget: "markdown" }
       - { label: "Tags", name: "tags", widget: "list" }
 
   - name: "group"
