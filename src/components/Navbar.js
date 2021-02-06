@@ -85,6 +85,15 @@ const Navbar = () => {
             <Link className="navbar-item" to="/programme-timetable">
               時間表 | Programme Timetable
             </Link>
+            <a
+              className="navbar-item"
+              href="https://www.4eb.org.au/"
+              target="_blank"
+              rel="nofollow"
+              rel="noreferrer"
+            >
+              Listen on 4EB
+            </a>
           </div>
         </div>
       </div>
