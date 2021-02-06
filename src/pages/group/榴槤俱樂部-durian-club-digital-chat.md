@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: 榴槤俱樂部
 description: 榴槤俱樂部
-galleryImages:
+galleryImage:
   - /assets/durianclub_0.png
   - /assets/durianclub_1.jpg
   - /assets/durianclub_2.jpg

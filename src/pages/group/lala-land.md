@@ -3,7 +3,7 @@ templateKey: blog-post
 title: Lala-Land
 description: |
   Lala-Land
-galleryImages:
+galleryImage:
   - /assets/img_1.png
   - /assets/img_2.jpg
   - /assets/img_3.jpg

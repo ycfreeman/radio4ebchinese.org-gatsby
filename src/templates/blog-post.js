@@ -73,7 +73,7 @@ BlogPostTemplate.propTypes = {
 
 const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data;
-  const images = post.frontmatter.galleryImages.map(
+  const images = post.frontmatter.galleryImage.map(
     ({ image }) => image.childImageSharp
   );
 
@@ -118,15 +118,13 @@ export const pageQuery = graphql`
         title
         description
         tags
-        galleryImages {
-          image {
-            childImageSharp {
-              thumb: fluid(maxWidth: 270, maxHeight: 270) {
-                ...GatsbyImageSharpFluid
-              }
-              full: fluid(maxWidth: 1024) {
-                ...GatsbyImageSharpFluid
-              }
+        galleryImage {
+          childImageSharp {
+            thumb: fluid(maxWidth: 270, maxHeight: 270) {
+              ...GatsbyImageSharpFluid
+            }
+            full: fluid(maxWidth: 1024) {
+              ...GatsbyImageSharpFluid
             }
           }
         }
