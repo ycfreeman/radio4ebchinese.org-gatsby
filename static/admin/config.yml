@@ -48,7 +48,8 @@ collections:
           widget: "hidden",
           default: "group",
         }
-      - { label: "Group Name", name: "title", widget: "string" }
+      - { label: slug, name: slug, widget: string, required: false }
+      - { label: "Title", name: "title", widget: "string" }
       - {
           label: "Description",
           name: "description",
@@ -89,5 +90,6 @@ collections:
               widget: "hidden",
               default: "page",
             }
+          - { label: slug, name: slug, widget: string, required: false }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }

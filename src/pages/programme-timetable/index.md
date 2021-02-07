@@ -2,6 +2,7 @@
 templateKey: page
 path: /programme-timetable
 title: 時間表 | Programme Timetable
+slug: program-timetable
 ---
 ### Friday
 - 22:45-01:00 咖啡狂想曲 Café Rhapsody

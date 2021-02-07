@@ -43,7 +43,7 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li>
-                    <Link className="navbar-item" to="/programme-timetable">
+                    <Link className="navbar-item" to="/program-timetable">
                       時間表 | Programme Timetable
                     </Link>
                   </li>

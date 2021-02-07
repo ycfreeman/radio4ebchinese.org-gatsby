@@ -41,6 +41,7 @@ exports.createPages = ({ actions, graphql }) => {
         // additional data can be passed via context
         context: {
           id,
+          slug: edge.node.fields.slug,
         },
       });
     });
@@ -71,14 +72,36 @@ exports.createPages = ({ actions, graphql }) => {
   });
 };
 
-exports.onCreateNode = ({ node, actions, getNode }) => {
+// https://github.com/cedricdelpoux/gatsby-plugin-slug
+exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
+  const fileNode = getNode(node.parent);
+
+  if (
+    (node.internal.type === "MarkdownRemark" || node.internal.type === "Mdx") &&
+    fileNode.internal.type === "File"
+  ) {
+    const parsedFilePath = path.parse(fileNode.relativePath);
+    let slug;
+
+    if (node.frontmatter && node.frontmatter.slug) {
+      slug = `/${node.frontmatter.slug}`;
+    } else {
+      if (parsedFilePath.name === "index" && parsedFilePath.dir === "") {
+        slug = `/`;
+      } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
+        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}`;
+      } else if (parsedFilePath.dir === "") {
+        slug = `/${parsedFilePath.name}`;
+      } else {
+        slug = `/${parsedFilePath.dir}`;
+      }
+    }
+
     createNodeField({
       name: `slug`,
       node,
-      value,
+      value: slug,
     });
   }
 };
