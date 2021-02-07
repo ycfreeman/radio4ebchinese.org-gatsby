@@ -77,7 +77,12 @@ module.exports = {
         purgeOnly: ["/all.scss"], // applies purging only on the bulma css file
       },
     }, // must be after other CSS plugins
-    "gatsby-plugin-favicon",
+    {
+      resolve: "gatsby-plugin-favicons",
+      options: {
+        logo: "./src/favicon.png",
+      },
+    },
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {

@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "yarn install --frozen-lockfile && yarn build"
+  command = "npm run build"
 [build.environment]
   NODE_VERSION = "14"
   YARN_VERSION = "1.22.4"
