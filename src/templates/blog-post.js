@@ -28,11 +28,11 @@ export const BlogPostTemplate = ({
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
               {title}
             </h1>
-            {description ? <p>{description}</p> : null}
+            <PostContent content={content} />
             {images.length > 0 ? (
               <div
                 style={{
-                  marginBottom: `4rem`,
+                  marginTop: `4rem`,
                   marginLeft: `0.75em`,
                   marginRight: `0.75em`,
                 }}
@@ -40,7 +40,6 @@ export const BlogPostTemplate = ({
                 <Gallery images={images} />
               </div>
             ) : null}
-            <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
@@ -76,14 +75,13 @@ const BlogPost = ({ data }) => {
   );
 
   return (
-    <Layout>
+    <Layout title={`${post.frontmatter.title} | 最新動態 | News`}>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | News">
-            <title>{`${post.frontmatter.title}`}</title>
+          <Helmet>
             <meta
               name="description"
               content={`${post.frontmatter.description}`}

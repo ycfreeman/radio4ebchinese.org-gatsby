@@ -5,6 +5,8 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import BlogRoll from "../components/BlogRoll";
 import { HTMLContent } from "../components/Content";
+import useSiteMetadata from "../components/SiteMetadata";
+import { Helmet } from "react-helmet";
 
 export const IndexPageTemplate = ({
   html,
@@ -107,15 +109,16 @@ const IndexPage = ({ data }) => {
 
   return (
     <Layout>
+      <Helmet>
+        <title>{frontmatter.title}</title>
+      </Helmet>
       <IndexPageTemplate
         html={html}
         image={frontmatter.featuredimage}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   );

@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Radio 4EB Chinese Group | 昆士蘭華語廣播協會",
+    title: "昆士蘭華語廣播協會 | Radio 4EB Chinese Group",
     description:
       "一個熟悉的聲音, 帶點感性, 絕對流行, Sharing the world with you.",
   },
@@ -42,7 +42,7 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 2048,
-              linkImagesToOriginal: false
+              linkImagesToOriginal: false,
             },
           },
           {

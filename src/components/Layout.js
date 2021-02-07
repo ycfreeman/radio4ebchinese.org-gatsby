@@ -6,11 +6,11 @@ import "./all.scss";
 import useSiteMetadata from "./SiteMetadata";
 import { withPrefix } from "gatsby";
 
-const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata();
+const TemplateWrapper = ({ title, children }) => {
+  const { title: siteTitle, description } = useSiteMetadata();
   return (
     <>
-      <Helmet>
+      <Helmet titleTemplate={`%s | ${siteTitle}`} defaultTitle={title}>
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />

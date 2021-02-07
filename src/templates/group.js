@@ -5,22 +5,24 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
 import { BlogPostTemplate } from "./blog-post";
+import useSiteMetadata from "../components/SiteMetadata";
 
 const Group = ({ data }) => {
+  const { title } = useSiteMetadata();
+
   const { markdownRemark: post } = data;
   const images = post.frontmatter.galleryImage.map(
     (image) => image.childImageSharp
   );
 
   return (
-    <Layout>
+    <Layout title={`${post.frontmatter.title} | 節目組 | Groups`}>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
-          <Helmet titleTemplate="%s | Group">
-            <title>{`${post.frontmatter.title}`}</title>
+          <Helmet>
             <meta
               name="description"
               content={`${post.frontmatter.description}`}
