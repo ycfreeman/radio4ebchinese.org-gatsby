@@ -2,7 +2,7 @@ import React, { useState, useCallback, useMemo } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import logo from "../../static/assets/logo.png";
 import useSiteMetadata from "./SiteMetadata";
-import { OutboundLink } from "gatsby-plugin-google-analytics"
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const Navbar = () => {
   const data = useStaticQuery(graphql`
