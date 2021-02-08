@@ -5,11 +5,8 @@ import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
 import { BlogPostTemplate } from "./blog-post";
-import useSiteMetadata from "../components/SiteMetadata";
 
 const Group = ({ data }) => {
-  const { title } = useSiteMetadata();
-
   const { markdownRemark: post } = data;
   const images = post.frontmatter.galleryImage.map(
     (image) => image.childImageSharp

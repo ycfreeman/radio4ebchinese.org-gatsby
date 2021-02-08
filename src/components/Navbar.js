@@ -2,6 +2,7 @@ import React, { useState, useCallback, useMemo } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import logo from "../../static/assets/logo.png";
 import useSiteMetadata from "./SiteMetadata";
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Navbar = () => {
   const data = useStaticQuery(graphql`
@@ -85,15 +86,14 @@ const Navbar = () => {
             <Link className="navbar-item" to="/program-timetable">
               時間表 | Programme Timetable
             </Link>
-            <a
+            <OutboundLink
               className="navbar-item"
               href="https://www.4eb.org.au/"
               target="_blank"
-              rel="nofollow"
               rel="noreferrer"
             >
               Listen on 4EB
-            </a>
+            </OutboundLink>
           </div>
         </div>
       </div>

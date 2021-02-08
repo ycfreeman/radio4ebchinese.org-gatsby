@@ -5,7 +5,6 @@ import { Link, graphql } from "gatsby";
 import Layout from "../components/Layout";
 import BlogRoll from "../components/BlogRoll";
 import { HTMLContent } from "../components/Content";
-import useSiteMetadata from "../components/SiteMetadata";
 import { Helmet } from "react-helmet";
 
 export const IndexPageTemplate = ({
