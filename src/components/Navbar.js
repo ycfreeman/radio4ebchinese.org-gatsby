@@ -3,6 +3,7 @@ import { Link, useStaticQuery, graphql } from "gatsby";
 import logo from "../../static/assets/logo.png";
 import useSiteMetadata from "./SiteMetadata";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import Img from "gatsby-image";
 
 const Navbar = () => {
   const data = useStaticQuery(graphql`
@@ -19,6 +20,16 @@ const Navbar = () => {
             frontmatter {
               title
             }
+          }
+        }
+      }
+
+      logo: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          # Specify the image processing specifications right in the query.
+          # Makes it trivial to update as your page's design changes.
+          fixed(width: 203, height: 80) {
+            ...GatsbyImageSharpFixed_withWebp_noBase64
           }
         }
       }
@@ -49,7 +60,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item" title="Home">
-            <img src={logo} alt={title} />
+            <Img critical fixed={data.logo.childImageSharp.fixed} alt={title} />
           </Link>
           {/* Hamburger menu */}
           <div

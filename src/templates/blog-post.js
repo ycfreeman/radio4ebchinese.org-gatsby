@@ -117,10 +117,10 @@ export const pageQuery = graphql`
         galleryImage {
           childImageSharp {
             thumb: fluid(maxWidth: 270, maxHeight: 270) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
             full: fluid(maxWidth: 1024) {
-              ...GatsbyImageSharpFluid
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

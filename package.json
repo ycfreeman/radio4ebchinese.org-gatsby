@@ -13,6 +13,7 @@
     "@mdx-js/react": "^1.6.22",
     "bulma-scss": "^0.9.2",
     "gatsby": "^2.32.3",
+    "gatsby-background-image": "1.4.1",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-favicons": "^2.0.0",
     "gatsby-plugin-google-analytics": "^2.11.0",
@@ -47,9 +48,9 @@
   "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
-    "start": "$npm_execpath run develop",
+    "start": "$npm_execpath run dev",
     "build": "$npm_execpath run clean && gatsby build",
-    "develop": "$npm_execpath run clean && gatsby develop",
+    "dev": "$npm_execpath run clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -6,6 +6,7 @@ import Layout from "../components/Layout";
 import BlogRoll from "../components/BlogRoll";
 import { HTMLContent } from "../components/Content";
 import { Helmet } from "react-helmet";
+import BackgroundImage from "gatsby-background-image";
 
 export const IndexPageTemplate = ({
   html,
@@ -14,16 +15,10 @@ export const IndexPageTemplate = ({
   subheading,
   mainpitch,
 }) => (
-  <div>
-    <div
-      className="full-width-image margin-top-0"
-      style={{
-        backgroundImage: `url(${
-          !!image.childImageSharp ? image.childImageSharp.fluid.src : image
-        })`,
-        backgroundPosition: `top center`,
-        backgroundAttachment: `fixed`,
-      }}
+  <>
+    <BackgroundImage
+      fluid={image.childImageSharp.fluid}
+      className="full-width-image margin-top-0 hero-bg"
     >
       <div
         style={{
@@ -36,7 +31,7 @@ export const IndexPageTemplate = ({
         }}
       >
         <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
+          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen hero-text"
           style={{
             boxShadow:
               "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
@@ -64,7 +59,7 @@ export const IndexPageTemplate = ({
           </h3>
         ) : null}
       </div>
-    </div>
+    </BackgroundImage>
     <section className="section section--gradient">
       <div className="container">
         <div className="columns">
@@ -91,7 +86,7 @@ export const IndexPageTemplate = ({
         </div>
       </div>
     </section>
-  </div>
+  </>
 );
 
 IndexPageTemplate.propTypes = {
@@ -142,8 +137,8 @@ export const pageQuery = graphql`
         title
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 2048, quality: 100) {
-              ...GatsbyImageSharpFluid
+            fluid(maxWidth: 2048) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }

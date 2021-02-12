@@ -43,6 +43,15 @@ $black: #2b2523;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.hero-bg {
+    &,
+    &::before,
+    &::after {
+      background-position: top center;
+      background-attachment: fixed;
+    }
+  }
 }
 
 .full-width-image {
@@ -53,6 +62,15 @@ $black: #2b2523;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.hero-bg {
+    &,
+    &::before,
+    &::after {
+      background-position: top center;
+      background-attachment: fixed;
+    }
+  }
 }
 
 .btn {
