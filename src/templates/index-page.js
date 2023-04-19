@@ -8,7 +8,7 @@ import { HTMLContent } from "../components/Content";
 import { Helmet } from "react-helmet";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
-export const IndexPageTemplate = ({
+const IndexPageTemplate = ({
   html,
   image,
   heading,

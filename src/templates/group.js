@@ -4,7 +4,7 @@ import { Helmet } from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../components/Layout";
 import { HTMLContent } from "../components/Content";
-import { BlogPostTemplate } from "./blog-post";
+import BlogPostTemplate from "../components/BlogPostTemplate";
 
 const Group = ({ data }) => {
   const { markdownRemark: post } = data;

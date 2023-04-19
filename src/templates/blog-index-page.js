@@ -5,7 +5,7 @@ import BlogRoll from "../components/BlogRoll";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { graphql } from "gatsby";
 
-export const BlogIndexPageTemplate = ({ image, heading }) => {
+const BlogIndexPageTemplate = ({ image, heading }) => {
   return (
     <>
       <div style={{ display: "grid" }}>
