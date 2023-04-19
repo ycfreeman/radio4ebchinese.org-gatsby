@@ -6,6 +6,7 @@ module.exports = {
       "一個熟悉的聲音, 帶點感性, 絕對流行, Sharing the world with you.",
   },
   plugins: [
+    "gatsby-plugin-image",
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: "gatsby-source-filesystem",
@@ -22,8 +23,8 @@ module.exports = {
       },
     },
     "gatsby-plugin-mdx",
-    "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     {
       resolve: "gatsby-transformer-remark",
       options: {
@@ -70,7 +71,6 @@ module.exports = {
         pageTransitionDelay: 0,
       },
     },
-    "gatsby-plugin-netlify-cms",
     {
       resolve: "gatsby-plugin-purgecss", // purges all unused/unreferenced css rules
       options: {
@@ -79,9 +79,9 @@ module.exports = {
       },
     }, // must be after other CSS plugins
     {
-      resolve: "gatsby-plugin-favicons",
+      resolve: "gatsby-plugin-manifest",
       options: {
-        logo: "./src/favicon.png",
+        icon: "src/favicon.png",
       },
     },
     {

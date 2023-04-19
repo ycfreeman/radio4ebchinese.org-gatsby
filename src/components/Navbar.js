@@ -1,40 +1,30 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import logo from "../../static/assets/logo.png";
 import useSiteMetadata from "./SiteMetadata";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
-import Img from "gatsby-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Navbar = () => {
-  const data = useStaticQuery(graphql`
-    query NavbarGroupsQuery {
-      allMarkdownRemark(
-        filter: { frontmatter: { templateKey: { eq: "group" } } }
-      ) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-            }
-          }
+  const data = useStaticQuery(graphql`query NavbarGroupsQuery {
+  allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "group"}}}) {
+    edges {
+      node {
+        id
+        fields {
+          slug
         }
-      }
-
-      logo: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          # Specify the image processing specifications right in the query.
-          # Makes it trivial to update as your page's design changes.
-          fixed(width: 203, height: 80) {
-            ...GatsbyImageSharpFixed_withWebp_noBase64
-          }
+        frontmatter {
+          title
         }
       }
     }
-  `);
+  }
+  logo: file(relativePath: {eq: "logo.png"}) {
+    childImageSharp {
+      gatsbyImageData(width: 203, height: 80, placeholder: NONE, layout: FIXED)
+    }
+  }
+}`);
 
   const { edges: groups } = data.allMarkdownRemark;
 
@@ -51,6 +41,8 @@ const Navbar = () => {
     setActive(!active);
   }, [active, setActive]);
 
+  const logo = getImage(data.logo);
+
   return (
     <nav
       className="navbar is-transparent"
@@ -60,7 +52,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar-brand">
           <Link to="/" className="navbar-item" title="Home">
-            <Img critical fixed={data.logo.childImageSharp.fixed} alt={title} />
+            <GatsbyImage image={logo} loading="eager" alt={title} />
           </Link>
           {/* Hamburger menu */}
           <div
@@ -94,9 +86,13 @@ const Navbar = () => {
                 })}
               </div>
             </div>
-            <Link className="navbar-item" to="/program-timetable">
+            <OutboundLink className="navbar-item"
+              href="https://www.4eb.org.au/guide"
+              target="_blank"
+              rel="noreferrer"
+            >
               時間表 | Programme Timetable
-            </Link>
+            </OutboundLink>
             <OutboundLink
               className="navbar-item"
               href="https://www.4eb.org.au/"

@@ -5,7 +5,7 @@ const Footer = () => {
   const data = useStaticQuery(graphql`
     query GroupsQuery {
       allMarkdownRemark(
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { frontmatter: { date: DESC } }
         filter: { frontmatter: { templateKey: { eq: "group" } } }
       ) {
         edges {
@@ -40,11 +40,6 @@ const Footer = () => {
                   <li>
                     <Link className="navbar-item" to="/news">
                       最新動態 | News
-                    </Link>
-                  </li>
-                  <li>
-                    <Link className="navbar-item" to="/program-timetable">
-                      時間表 | Programme Timetable
                     </Link>
                   </li>
                 </ul>

@@ -53,12 +53,16 @@ export const pageQuery = graphql`
         tags
         galleryImage {
           childImageSharp {
-            thumb: fluid(maxWidth: 270, maxHeight: 270) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
-            full: fluid(maxWidth: 1024) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            thumb: gatsbyImageData(
+              width: 270
+              height: 270
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
+            full: gatsbyImageData(
+              layout: FULL_WIDTH
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
       }

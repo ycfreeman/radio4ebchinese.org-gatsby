@@ -6,7 +6,7 @@ import Layout from "../components/Layout";
 import BlogRoll from "../components/BlogRoll";
 import { HTMLContent } from "../components/Content";
 import { Helmet } from "react-helmet";
-import BackgroundImage from "gatsby-background-image";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 export const IndexPageTemplate = ({
   html,
@@ -16,36 +16,29 @@ export const IndexPageTemplate = ({
   mainpitch,
 }) => (
   <>
-    <BackgroundImage
-      fluid={image.childImageSharp.fluid}
-      className="full-width-image margin-top-0 hero-bg"
-    >
+    <div style={{ display: "grid" }}>
+      <GatsbyImage
+        style={{
+          gridArea: "1/1",
+        }}
+        layout="fullWidth"
+        alt={heading}
+        image={image}
+        className="full-width-image margin-top-0 hero-bg"
+      />
       <div
         style={{
-          display: "flex",
-          height: "150px",
-          lineHeight: "1",
-          justifyContent: "space-around",
-          alignItems: "left",
-          flexDirection: "column",
+          // By using the same grid area for both, they are stacked on top of each other
+          gridArea: "1/1",
+          position: "relative",
+          // This centers the other elements inside the hero component
+          placeItems: "center",
+          display: "grid",
         }}
       >
-        <h1
-          className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen hero-text"
-          style={{
-            boxShadow:
-              "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-            backgroundColor: "rgb(255, 68, 0)",
-            color: "white",
-            lineHeight: "1",
-            padding: "0.25em",
-          }}
-        >
-          {heading}
-        </h1>
-        {subheading ? (
-          <h3
-            className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+        <div>
+          <h1
+            className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen hero-text"
             style={{
               boxShadow:
                 "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
@@ -55,11 +48,26 @@ export const IndexPageTemplate = ({
               padding: "0.25em",
             }}
           >
-            {subheading}
-          </h3>
-        ) : null}
+            {heading}
+          </h1>
+          {subheading ? (
+            <h3
+              className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
+              style={{
+                boxShadow:
+                  "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
+                backgroundColor: "rgb(255, 68, 0)",
+                color: "white",
+                lineHeight: "1",
+                padding: "0.25em",
+              }}
+            >
+              {subheading}
+            </h3>
+          ) : null}
+        </div>
       </div>
-    </BackgroundImage>
+    </div>
     <section className="section section--gradient">
       <div className="container">
         <div className="columns">
@@ -100,6 +108,7 @@ IndexPageTemplate.propTypes = {
 
 const IndexPage = ({ data }) => {
   const { frontmatter, html } = data.markdownRemark;
+  const featuredimage = getImage(frontmatter.featuredimage);
 
   return (
     <Layout>
@@ -108,7 +117,7 @@ const IndexPage = ({ data }) => {
       </Helmet>
       <IndexPageTemplate
         html={html}
-        image={frontmatter.featuredimage}
+        image={featuredimage}
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
@@ -137,9 +146,11 @@ export const pageQuery = graphql`
         title
         featuredimage {
           childImageSharp {
-            fluid(maxWidth: 2048) {
-              ...GatsbyImageSharpFluid_withWebp
-            }
+            gatsbyImageData(
+              layout: FULL_WIDTH
+              placeholder: BLURRED
+              formats: [AUTO, WEBP, AVIF]
+            )
           }
         }
         heading
