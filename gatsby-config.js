@@ -6,7 +6,7 @@ module.exports = {
       '一個熟悉的聲音, 帶點感性, 絕對流行, Sharing the world with you.',
   },
   plugins: [
-    'gatsby-plugin-pnpm',
+    'gatsby-plugin-pnpm-gatsby-5',
     'gatsby-plugin-image',
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support

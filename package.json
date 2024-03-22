@@ -15,7 +15,7 @@
     "gatsby-plugin-image": "3.9.0",
     "gatsby-plugin-manifest": "^5.9.0",
     "gatsby-plugin-mdx": "5.9.0",
-    "gatsby-plugin-pnpm": "^1.2.10",
+    "gatsby-plugin-pnpm-gatsby-5": "^1.2.11",
     "gatsby-plugin-purgecss": "6.2.1",
     "gatsby-plugin-react-helmet": "6.9.0",
     "gatsby-plugin-sass": "6.9.0",
