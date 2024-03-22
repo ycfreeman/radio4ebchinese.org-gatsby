@@ -1,30 +1,39 @@
 import React, { useState, useCallback, useMemo } from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import useSiteMetadata from "./SiteMetadata";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from "gatsby-plugin-google-gtag";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Navbar = () => {
-  const data = useStaticQuery(graphql`query NavbarGroupsQuery {
-  allMarkdownRemark(filter: {frontmatter: {templateKey: {eq: "group"}}}) {
-    edges {
-      node {
-        id
-        fields {
-          slug
+  const data = useStaticQuery(graphql`
+    query NavbarGroupsQuery {
+      allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "group" } } }
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+            }
+          }
         }
-        frontmatter {
-          title
+      }
+      logo: file(relativePath: { eq: "logo.png" }) {
+        childImageSharp {
+          gatsbyImageData(
+            width: 203
+            height: 80
+            placeholder: NONE
+            layout: FIXED
+          )
         }
       }
     }
-  }
-  logo: file(relativePath: {eq: "logo.png"}) {
-    childImageSharp {
-      gatsbyImageData(width: 203, height: 80, placeholder: NONE, layout: FIXED)
-    }
-  }
-}`);
+  `);
 
   const { edges: groups } = data.allMarkdownRemark;
 
@@ -86,7 +95,8 @@ const Navbar = () => {
                 })}
               </div>
             </div>
-            <OutboundLink className="navbar-item"
+            <OutboundLink
+              className="navbar-item"
               href="https://www.4eb.org.au/guide"
               target="_blank"
               rel="noreferrer"

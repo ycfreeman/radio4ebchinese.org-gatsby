@@ -6,6 +6,7 @@ module.exports = {
       "一個熟悉的聲音, 帶點感性, 絕對流行, Sharing the world with you.",
   },
   plugins: [
+    "gatsby-plugin-pnpm",
     "gatsby-plugin-image",
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
@@ -60,15 +61,19 @@ module.exports = {
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: `gatsby-plugin-google-gtag`,
       options: {
-        // The property ID; the tracking code won't be generated without it
-        trackingId: "UA-73101784-1",
-        // Defines where to place the tracking script - `true` in the head and `false` in the body
-        head: false,
-
-        // Delays sending pageview hits on route update (in milliseconds)
-        pageTransitionDelay: 0,
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-C78W8K9SF3", // Google Analytics / GA
+        ],
+        // This object is used for configuration specific to this plugin
+        pluginConfig: {
+          // Puts tracking script in the head instead of the body
+          head: true,
+          // Setting this parameter is also optional
+          respectDNT: true,
+        },
       },
     },
     {
