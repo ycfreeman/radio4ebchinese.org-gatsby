@@ -1,9 +1,9 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { kebabCase } from "lodash";
-import { Link } from "gatsby";
-import Content from "../components/Content";
-import Gallery from "@browniebroke/gatsby-image-gallery";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { kebabCase } from 'lodash'
+import { Link } from 'gatsby'
+import Content from '../components/Content'
+import Gallery from '@browniebroke/gatsby-image-gallery'
 
 const BlogPostTemplate = ({
   content,
@@ -14,11 +14,11 @@ const BlogPostTemplate = ({
   helmet,
   images = [],
 }) => {
-  const PostContent = contentComponent || Content;
+  const PostContent = contentComponent || Content
 
   return (
     <section className="section">
-      {helmet || ""}
+      {helmet || ''}
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
@@ -53,8 +53,8 @@ const BlogPostTemplate = ({
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -63,6 +63,6 @@ BlogPostTemplate.propTypes = {
   title: PropTypes.string,
   helmet: PropTypes.object,
   images: PropTypes.arrayOf(PropTypes.object),
-};
+}
 
-export default BlogPostTemplate;
+export default BlogPostTemplate

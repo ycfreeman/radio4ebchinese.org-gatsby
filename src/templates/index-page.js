@@ -1,25 +1,19 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Link, graphql } from 'gatsby'
 
-import Layout from "../components/Layout";
-import BlogRoll from "../components/BlogRoll";
-import { HTMLContent } from "../components/Content";
-import { Helmet } from "react-helmet";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import Layout from '../components/Layout'
+import BlogRoll from '../components/BlogRoll'
+import { HTMLContent } from '../components/Content'
+import { Helmet } from 'react-helmet'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
-const IndexPageTemplate = ({
-  html,
-  image,
-  heading,
-  subheading,
-  mainpitch,
-}) => (
+const IndexPageTemplate = ({ html, image, heading, subheading, mainpitch }) => (
   <>
-    <div style={{ display: "grid" }}>
+    <div style={{ display: 'grid' }}>
       <GatsbyImage
         style={{
-          gridArea: "1/1",
+          gridArea: '1/1',
         }}
         layout="fullWidth"
         alt={heading}
@@ -29,11 +23,11 @@ const IndexPageTemplate = ({
       <div
         style={{
           // By using the same grid area for both, they are stacked on top of each other
-          gridArea: "1/1",
-          position: "relative",
+          gridArea: '1/1',
+          position: 'relative',
           // This centers the other elements inside the hero component
-          placeItems: "center",
-          display: "grid",
+          placeItems: 'center',
+          display: 'grid',
         }}
       >
         <div>
@@ -41,11 +35,11 @@ const IndexPageTemplate = ({
             className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen hero-text"
             style={{
               boxShadow:
-                "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-              backgroundColor: "rgb(255, 68, 0)",
-              color: "white",
-              lineHeight: "1",
-              padding: "0.25em",
+                'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+              backgroundColor: 'rgb(255, 68, 0)',
+              color: 'white',
+              lineHeight: '1',
+              padding: '0.25em',
             }}
           >
             {heading}
@@ -55,11 +49,11 @@ const IndexPageTemplate = ({
               className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
               style={{
                 boxShadow:
-                  "rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px",
-                backgroundColor: "rgb(255, 68, 0)",
-                color: "white",
-                lineHeight: "1",
-                padding: "0.25em",
+                  'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
+                backgroundColor: 'rgb(255, 68, 0)',
+                color: 'white',
+                lineHeight: '1',
+                padding: '0.25em',
               }}
             >
               {subheading}
@@ -95,7 +89,7 @@ const IndexPageTemplate = ({
       </div>
     </section>
   </>
-);
+)
 
 IndexPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
@@ -104,11 +98,11 @@ IndexPageTemplate.propTypes = {
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
   description: PropTypes.string,
-};
+}
 
 const IndexPage = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark;
-  const featuredimage = getImage(frontmatter.featuredimage);
+  const { frontmatter, html } = data.markdownRemark
+  const featuredimage = getImage(frontmatter.featuredimage)
 
   return (
     <Layout>
@@ -124,8 +118,8 @@ const IndexPage = ({ data }) => {
         description={frontmatter.description}
       />
     </Layout>
-  );
-};
+  )
+}
 
 IndexPage.propTypes = {
   data: PropTypes.shape({
@@ -133,9 +127,9 @@ IndexPage.propTypes = {
       frontmatter: PropTypes.object,
     }),
   }),
-};
+}
 
-export default IndexPage;
+export default IndexPage
 
 export const pageQuery = graphql`
   query IndexPageTemplate {
@@ -159,4 +153,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

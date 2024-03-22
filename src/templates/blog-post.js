@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import { HTMLContent } from "../components/Content";
-import BlogPostTemplate from "../components/BlogPostTemplate";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import { HTMLContent } from '../components/Content'
+import BlogPostTemplate from '../components/BlogPostTemplate'
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
   const images = post.frontmatter.galleryImage.map(
     (image) => image.childImageSharp
-  );
+  )
 
   return (
     <Layout title={`${post.frontmatter.title} | 最新動態 | News`}>
@@ -31,16 +31,16 @@ const BlogPost = ({ data }) => {
         images={images}
       />
     </Layout>
-  );
-};
+  )
+}
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-};
+}
 
-export default BlogPost;
+export default BlogPost
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -69,4 +69,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

@@ -1,9 +1,9 @@
-const _ = require("lodash");
-const path = require("path");
-const { createFilePath } = require("gatsby-source-filesystem");
+const _ = require('lodash')
+const path = require('path')
+const { createFilePath } = require('gatsby-source-filesystem')
 
 exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions;
+  const { createPage } = actions
 
   return graphql(`
     {
@@ -24,14 +24,14 @@ exports.createPages = ({ actions, graphql }) => {
     }
   `).then((result) => {
     if (result.errors) {
-      result.errors.forEach((e) => console.error(e.toString()));
-      return Promise.reject(result.errors);
+      result.errors.forEach((e) => console.error(e.toString()))
+      return Promise.reject(result.errors)
     }
 
-    const posts = result.data.allMarkdownRemark.edges;
+    const posts = result.data.allMarkdownRemark.edges
 
     posts.forEach((edge) => {
-      const id = edge.node.id;
+      const id = edge.node.id
       createPage({
         path: edge.node.fields.slug,
         tags: edge.node.frontmatter.tags,
@@ -43,23 +43,23 @@ exports.createPages = ({ actions, graphql }) => {
           id,
           slug: edge.node.fields.slug,
         },
-      });
-    });
+      })
+    })
 
     // Tag pages:
-    let tags = [];
+    let tags = []
     // Iterate through each post, putting all found tags into `tags`
     posts.forEach((edge) => {
       if (_.get(edge, `node.frontmatter.tags`)) {
-        tags = tags.concat(edge.node.frontmatter.tags);
+        tags = tags.concat(edge.node.frontmatter.tags)
       }
-    });
+    })
     // Eliminate duplicate tags
-    tags = _.uniq(tags);
+    tags = _.uniq(tags)
 
     // Make tag pages
     tags.forEach((tag) => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`;
+      const tagPath = `/tags/${_.kebabCase(tag)}/`
 
       createPage({
         path: tagPath,
@@ -67,34 +67,34 @@ exports.createPages = ({ actions, graphql }) => {
         context: {
           tag,
         },
-      });
-    });
-  });
-};
+      })
+    })
+  })
+}
 
 // https://github.com/cedricdelpoux/gatsby-plugin-slug
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-  const fileNode = getNode(node.parent);
+  const { createNodeField } = actions
+  const fileNode = getNode(node.parent)
 
   if (
-    (node.internal.type === "MarkdownRemark" || node.internal.type === "Mdx") &&
-    fileNode.internal.type === "File"
+    (node.internal.type === 'MarkdownRemark' || node.internal.type === 'Mdx') &&
+    fileNode.internal.type === 'File'
   ) {
-    const parsedFilePath = path.parse(fileNode.relativePath);
-    let slug;
+    const parsedFilePath = path.parse(fileNode.relativePath)
+    let slug
 
     if (node.frontmatter && node.frontmatter.slug) {
-      slug = `/${node.frontmatter.slug}`;
+      slug = `/${node.frontmatter.slug}`
     } else {
-      if (parsedFilePath.name === "index" && parsedFilePath.dir === "") {
-        slug = `/`;
-      } else if (parsedFilePath.name !== "index" && parsedFilePath.dir !== "") {
-        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}`;
-      } else if (parsedFilePath.dir === "") {
-        slug = `/${parsedFilePath.name}`;
+      if (parsedFilePath.name === 'index' && parsedFilePath.dir === '') {
+        slug = `/`
+      } else if (parsedFilePath.name !== 'index' && parsedFilePath.dir !== '') {
+        slug = `/${parsedFilePath.dir}/${parsedFilePath.name}`
+      } else if (parsedFilePath.dir === '') {
+        slug = `/${parsedFilePath.name}`
       } else {
-        slug = `/${parsedFilePath.dir}`;
+        slug = `/${parsedFilePath.dir}`
       }
     }
 
@@ -102,6 +102,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: `slug`,
       node,
       value: slug,
-    });
+    })
   }
-};
+}

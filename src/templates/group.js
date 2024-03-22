@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Helmet } from "react-helmet";
-import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import { HTMLContent } from "../components/Content";
-import BlogPostTemplate from "../components/BlogPostTemplate";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
+import { graphql } from 'gatsby'
+import Layout from '../components/Layout'
+import { HTMLContent } from '../components/Content'
+import BlogPostTemplate from '../components/BlogPostTemplate'
 
 const Group = ({ data }) => {
-  const { markdownRemark: post } = data;
+  const { markdownRemark: post } = data
   const images = post.frontmatter.galleryImage.map(
     (image) => image.childImageSharp
-  );
+  )
 
   return (
     <Layout title={`${post.frontmatter.title} | 節目組 | Groups`}>
@@ -31,16 +31,16 @@ const Group = ({ data }) => {
         images={images}
       />
     </Layout>
-  );
-};
+  )
+}
 
 Group.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-};
+}
 
-export default Group;
+export default Group
 
 export const pageQuery = graphql`
   query GroupByID($id: String!) {
@@ -68,4 +68,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`;
+`

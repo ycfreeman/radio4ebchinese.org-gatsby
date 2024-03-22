@@ -1,8 +1,8 @@
-import React, { useState, useCallback, useMemo } from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
-import useSiteMetadata from "./SiteMetadata";
-import { OutboundLink } from "gatsby-plugin-google-gtag";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import React, { useState, useCallback, useMemo } from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby'
+import useSiteMetadata from './SiteMetadata'
+import { OutboundLink } from 'gatsby-plugin-google-gtag'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 
 const Navbar = () => {
   const data = useStaticQuery(graphql`
@@ -33,24 +33,24 @@ const Navbar = () => {
         }
       }
     }
-  `);
+  `)
 
-  const { edges: groups } = data.allMarkdownRemark;
+  const { edges: groups } = data.allMarkdownRemark
 
-  const { title } = useSiteMetadata();
+  const { title } = useSiteMetadata()
 
-  const [active, setActive] = useState(false);
+  const [active, setActive] = useState(false)
 
   const navBarActiveClass = useMemo(() => {
-    if (active) return "is-active";
-    return "";
-  }, [active]);
+    if (active) return 'is-active'
+    return ''
+  }, [active])
 
   const toggleHamburger = useCallback(() => {
-    setActive(!active);
-  }, [active, setActive]);
+    setActive(!active)
+  }, [active, setActive])
 
-  const logo = getImage(data.logo);
+  const logo = getImage(data.logo)
 
   return (
     <nav
@@ -91,7 +91,7 @@ const Navbar = () => {
                     >
                       {group.frontmatter.title}
                     </Link>
-                  );
+                  )
                 })}
               </div>
             </div>
@@ -115,7 +115,7 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

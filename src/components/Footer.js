@@ -1,5 +1,5 @@
-import React from "react";
-import { Link, useStaticQuery, graphql } from "gatsby";
+import React from 'react'
+import { Link, useStaticQuery, graphql } from 'gatsby'
 
 const Footer = () => {
   const data = useStaticQuery(graphql`
@@ -21,14 +21,14 @@ const Footer = () => {
         }
       }
     }
-  `);
-  const { edges: groups } = data.allMarkdownRemark;
+  `)
+  const { edges: groups } = data.allMarkdownRemark
 
   return (
     <footer className="footer has-background-black has-text-white-ter">
       <div className="content has-text-centered has-background-black has-text-white-ter">
         <div className="container has-background-black has-text-white-ter">
-          <div style={{ maxWidth: "100vw" }} className="columns">
+          <div style={{ maxWidth: '100vw' }} className="columns">
             <div className="column is-4">
               <section className="menu">
                 <ul className="menu-list">
@@ -56,7 +56,7 @@ const Footer = () => {
                           {group.frontmatter.title}
                         </Link>
                       </li>
-                    );
+                    )
                   })}
                 </ul>
               </section>
@@ -66,7 +66,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
